@@ -13,10 +13,9 @@ module clock(i_clk, i_rst, o_clk);
             o_clk <= 0;
         end else if (counter == 1249) begin
             counter <= 0;
-            o_clk <= 1;
+            o_clk <= ~o_clk;
         end else begin
             counter <= counter + 1;
-            o_clk <= 0;
         end
     end
 endmodule
