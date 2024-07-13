@@ -2,13 +2,13 @@
 
 module transmitter(
     i_clk,
-    i_tx,
+    i_tx_start,
     i_data,
     o_data,
     busy
 );
     input wire i_clk;
-    input wire i_tx;
+    input wire i_tx_start;
     input wire[7:0] i_data;
 
     output reg busy;
@@ -18,8 +18,8 @@ module transmitter(
     reg[9:0] s_data;
     reg[3:0] bit_counter;
 
-    always @ (posedge i_clk, posedge i_tx) begin
-        if (i_tx) begin
+    always @ (posedge i_clk, posedge i_tx_start) begin
+        if (i_tx_start) begin
             continue_tx <= 1;
             bit_counter <= 0;
             s_data <= {1'b1, i_data, 1'b0};
