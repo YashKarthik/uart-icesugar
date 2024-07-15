@@ -20,11 +20,11 @@ int main(int argc, char** argv, char** env) {
     m_trace->open("transmitter-trace.vcd");
 
     while (sim_time < MAX_SIM_TIME) {
-        if (sim_time == MAX_SIM_TIME/8) {
-            circuit->i_tx = 1;
+        if (sim_time >= MAX_SIM_TIME/8 && sim_time < MAX_SIM_TIME/7) {
+            circuit->i_tx_start = 1;
             circuit->i_data = 13;
         } else {
-            circuit->i_tx = 0;
+            circuit->i_tx_start = 0;
             circuit->i_data = 0;
         }
 
