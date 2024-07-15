@@ -30,7 +30,7 @@ module transmitter(
             continue_tx <= 1;
             bit_counter <= 0;
             s_data <= {1'b1, i_data, 1'b0};
-            busy <= 1;
+            busy <= 0;
             o_data <= 1;
         end else begin
             o_data <= 1;

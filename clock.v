@@ -1,11 +1,11 @@
 `default_nettype none
 
-module clock(i_clk, i_rst, o_clk, counter);
+module clock(i_clk, i_rst, o_clk);
     input wire i_clk;
     input wire i_rst;
     output reg o_clk;
 
-    output reg [10:0] counter;
+    reg [10:0] counter;
 
     always @ (posedge i_clk, posedge i_rst) begin
         if (i_rst) begin
