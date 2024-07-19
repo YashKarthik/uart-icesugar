@@ -1,17 +1,20 @@
 `default_nettype none
 
-module clock(i_clk, i_rst, o_clk);
-    input wire i_clk;
-    input wire i_rst;
-    output reg o_clk;
+module clock #(
+    parameter logic [13:0] N = 624
+) (
+    input wire i_clk,
+    input wire i_rst,
+    output reg o_clk
+);
 
-    reg [10:0] counter;
+    reg [13:0] counter;
 
     always @ (posedge i_clk, posedge i_rst) begin
         if (i_rst) begin
             counter <= 0;
             o_clk <= 0;
-        end else if (counter == 624) begin
+        end else if (counter == N) begin
             counter <= 0;
             o_clk <= ~o_clk;
         end else begin
