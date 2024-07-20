@@ -5,7 +5,7 @@
 #include <verilated_vcd_c.h>
 #include "Vreceiver.h"
 
-#define MAX_SIM_TIME 300
+#define MAX_SIM_TIME 200000
 int sim_time = 0;
 int posedge_cnt = 0;
 
@@ -27,7 +27,7 @@ int main(int argc, char** argv, char** env) {
         if ((sim_time >= MAX_SIM_TIME/8 ) && (data.size() != 0)) {
             circuit->i_rx = data.back();
             count++;
-            if (count == 2) {
+            if (count == 5000) {
                 data.pop_back();
                 count = 0;
             }

@@ -1,7 +1,7 @@
 `default_nettype none
 
 module clock #(
-    parameter logic [13:0] N = 624
+    parameter N = 13'd624
 ) (
     input wire i_clk,
     input wire i_rst,
